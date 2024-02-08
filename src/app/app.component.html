@@ -1,48 +1,38 @@
 <h1 class="text-red-400 text-3xl text-center">Angular Calculator</h1>
-<div class="min-w-screen min-h-screen bg-teal-500 flex
-items-center justify-center px-5 py-5">
-  <div class="w-full mx-auto rounded-xl bg-gray-700
-shadow-xl text-gray-800 relative overflow-hidden" style="max-width: 350px">
+<div class="min-w-screen min-h-screen bg-teal-500 flex items-center justify-center px-5 py-5">
+  <div class="w-full mx-auto rounded-xl bg-gray-700 shadow-xl text-gray-800 relative overflow-hidden" style="max-width: 350px">
     <h1 class="text-center text-white py-10 text-3xl font-bold">Angular Calculator</h1>
     <!--  calculator screen -->
-    <div class="w-full h-40 bg-gradient-to-b from-gray-800
-to-gray-700 text-right">
+    <div class="w-full h-40 bg-gradient-to-b from-gray-800 to-gray-700 text-right">
       <!--function screen-->
       <div class="w-full py-5 px-6 text-2xl text-white font-thin">
-
+      {{expression}}
       </div>
-      <!--      number screen-->
+      <!--      result screen-->
       <div class="w-full py-5 px-6 text-6xl text-white font-thin">
-        100
+        {{result}}
       </div>
     </div>
     <!--    end calculator screeb-->
     <!--    calculator button area-->
-    <div class="w-full bg-gradient-to-b
-from-red-500 to-red-800">
+    <div class="w-full bg-gradient-to-b from-red-500 to-red-800">
       <!--      first row-->
       <div class="flex w-full">
         <!--        c button-->
-        <div class="w-2/4 border-r border-b
-border-red-400">
-          <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20
-text-white text-opacity-50 text-xl font-light">c
+        <div class="w-2/4 border-r border-b border-red-400">
+          <button (click)="clear()"  class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-white text-opacity-50 text-xl font-light">c
           </button>
         </div>
         <!--        end of c-->
         <!--        % button-->
-        <div class="w-1/4 border-r border-b
-border-red-400">
-          <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20
-text-white text-opacity-50 text-xl font-light">%
+        <div class="w-1/4 border-r border-b border-red-400">
+          <button (click)="createExpression('%')" class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-white text-opacity-50 text-xl font-light">%
           </button>
         </div>
         <!--        end of % button-->
         <!--        multplication butto\n-->
-        <div class="w-1/4 border-r border-b
-border-red-400">
-          <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20
-text-white text-opacity-50 text-xl font-light">*
+        <div class="w-1/4 border-r border-b border-red-400">
+          <button (click)="createExpression('*')" class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-white text-opacity-50 text-xl font-light">*
           </button>
         </div>
         <!--        end of mult button-->
@@ -52,33 +42,25 @@ text-white text-opacity-50 text-xl font-light">*
       <!--      start of second row -->
       <div class="flex w-full">
         <!--        7 button-->
-        <div class="w-1/4 border-r border-b
-border-red-400">
-          <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20
-text-white text-opacity-50 text-xl font-light">7
+        <div class="w-1/4 border-r border-b border-red-400">
+          <button (click)="createExpression('7')" class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-white text-opacity-50 text-xl font-light">7
           </button>
         </div>
         <!--        end of 7-->
         <!--        8 button-->
-        <div class="w-1/4 border-r border-b
-border-red-400">
-          <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20
-text-white text-opacity-50 text-xl font-light">8
+        <div class="w-1/4 border-r border-b border-red-400">
+          <button (click)="createExpression('8')" class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-white text-opacity-50 text-xl font-light">8
           </button>
         </div>
         <!--        end of 9 button-->
         <!--        multplication butto\n-->
-        <div class="w-1/4 border-r border-b
-border-red-400">
-          <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20
-text-white text-opacity-50 text-xl font-light">9
+        <div class="w-1/4 border-r border-b border-red-400">
+          <button (click)="createExpression('9')" class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-white text-opacity-50 text-xl font-light">9
           </button>
         </div>
         <!--        start of division button-->
-        <div class="w-1/4 border-r border-b
-border-red-400">
-          <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20
-text-white text-opacity-50 text-xl font-light">/
+        <div class="w-1/4 border-r border-b border-red-400">
+          <button (click)="createExpression('/')" class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-white text-opacity-50 text-xl font-light">/
           </button>
         </div>
         <!--        end of division button-->
@@ -88,31 +70,23 @@ text-white text-opacity-50 text-xl font-light">/
       <!--      start of 3rd row-->
       <div class="flex w-full">
         <!--        4 button-->
-        <div class="w-1/4 border-r border-b
-border-red-400">
-          <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20
-text-white text-opacity-50 text-xl font-light">4
+        <div class="w-1/4 border-r border-b border-red-400">
+          <button (click)="createExpression('4')" class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-white text-opacity-50 text-xl font-light">4
           </button>
         </div>
         <!--        end of 5-->
-        <div class="w-1/4 border-r border-b
-border-red-400">
-          <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20
-text-white text-opacity-50 text-xl font-light">5
+        <div class="w-1/4 border-r border-b border-red-400">
+          <button (click)="createExpression('5')" class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-white text-opacity-50 text-xl font-light">5
           </button>
         </div>
         <!--        end of 6 button-->
-        <div class="w-1/4 border-r border-b
-border-red-400">
-          <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20
-text-white text-opacity-50 text-xl font-light">6
+        <div class="w-1/4 border-r border-b border-red-400">
+          <button (click)="createExpression('6')" class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-white text-opacity-50 text-xl font-light">6
           </button>
         </div>
         <!--        start of minus button-->
-        <div class="w-1/4 border-r border-b
-border-red-400">
-          <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20
-text-white text-opacity-50 text-xl font-light">-
+        <div class="w-1/4 border-r border-b border-red-400">
+          <button (click)="createExpression('-')" class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-white text-opacity-50 text-xl font-light">-
           </button>
         </div>
         <!--        end of minuz button-->
@@ -122,32 +96,24 @@ text-white text-opacity-50 text-xl font-light">-
       <!--      start of 4th row-->
       <div class="flex w-full">
         <!--        1 button-->
-        <div class="w-1/4 border-r border-b
-border-red-400">
-          <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20
-text-white text-opacity-50 text-xl font-light">1
+        <div class="w-1/4 border-r border-b border-red-400">
+          <button (click)="createExpression('1')" class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-white text-opacity-50 text-xl font-light">1
           </button>
         </div>
         <!--        2 button-->
-        <div class="w-1/4 border-r border-b
-border-red-400">
-          <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20
-text-white text-opacity-50 text-xl font-light">2
+        <div class="w-1/4 border-r border-b border-red-400">
+          <button (click)="createExpression('2')" class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-white text-opacity-50 text-xl font-light">2
           </button>
         </div>
         <!--        end of 2 button-->
         <!--        3 button-->
-        <div class="w-1/4 border-r border-b
-border-red-400">
-          <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20
-text-white text-opacity-50 text-xl font-light">3
+        <div class="w-1/4 border-r border-b border-red-400">
+          <button (click)="createExpression('3')" class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-white text-opacity-50 text-xl font-light">3
           </button>
         </div>
         <!--        start of addition button-->
-        <div class="w-1/4 border-r border-b
-border-red-400">
-          <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20
-text-white text-opacity-50 text-xl font-light">+
+        <div class="w-1/4 border-r border-b border-red-400">
+          <button (click)="createExpression('+')" class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-white text-opacity-50 text-xl font-light">+
           </button>
         </div>
         <!--        end of division button-->
@@ -157,26 +123,20 @@ text-white text-opacity-50 text-xl font-light">+
       <!--      start of 5th row -->
       <div class="flex w-full">
         <!--        0 button-->
-        <div class="w-1/4 border-r border-b
-border-red-400">
-          <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20
-text-white text-opacity-50 text-xl font-light">0
+        <div class="w-1/4 border-r border-b border-red-400">
+          <button (click)="createExpression('0')" class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-white text-opacity-50 text-xl font-light">0
           </button>
         </div>
         <!--        end of 0->
         <!-decimal button-->
-        <div class="w-1/4 border-r border-b
-border-red-400">
-          <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20
-text-white text-opacity-50 text-xl font-light">.
+        <div class="w-1/4 border-r border-b border-red-400">
+          <button (click)="createExpression('.')" class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-white text-opacity-50 text-xl font-light">.
           </button>
         </div>
         <!--        end of decimal button-->
         <!--        equal button-->
-        <div class="w-2/4 border-r border-b
-border-red-400">
-          <button class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20
-text-white text-opacity-50 text-xl font-light">=
+        <div class="w-2/4 border-r border-b border-red-400">
+          <button (click)="equal()" class="w-full h-16 outline-none hover:bg-red-700 hover:bg-opacity-20 text-white text-opacity-50 text-xl font-light">=
           </button>
         </div>
 
